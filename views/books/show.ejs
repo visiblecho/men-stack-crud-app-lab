@@ -1,0 +1,77 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Show a book</h1>
+
+<article>
+    <ul>
+        <% Object.entries(book).forEach(([key, value]) => { %>
+            <% if (['_id', '__v'].includes(key) || !value) return %>
+            <li><%= key %>: <%= value %></li>
+        <% }) %>
+    </ul>
+</article>
+
+<%- include('../partials/footer.ejs') %>
+<!---
+        <div>
+            <label for="titleText">Title
+            <input type="text" name="titleText" id="titleText" required>
+            </label>
+        </div>
+
+        <div>
+            <label for="subtitle">Subtitle
+            <input type="text" name="subtitle" id="subtitle">
+            </label>
+        
+            <label for="partNumber">Part Number
+            <input type="text" name="partNumber" id="partNumber">
+            </label>
+        </div>
+
+        <div>
+            <label for="publisherName">Publisher
+            <input type="text" name="publisherName" id="publisherName" required>
+            </label>
+        
+            <label for="cityOfPublication">City of Publication
+            <input type="text" name="cityOfPublication" id="cityOfPublication">
+            </label>
+        
+            <label for="publishingDate">Publishing Date
+            <input type="date" name="publishingDate" id="publishingDate">
+            </label>
+       
+            <label for="editionNumber">Edition Number
+            <input type="number" name="editionNumber" id="editionNumber" min="1">
+            </label>
+        </div>
+
+        <div>
+            <label for="language">Language
+            <input type="text" name="language" id="language" value="German">
+            </label>
+        </div>
+
+        <div>
+            <label for="pages">Pages
+            <input type="number" name="pages" id="pages" min="1">
+            </label>
+        </div>
+
+        <div>
+            <label for="priceAmount">Price
+            <input type="number" name="priceAmount" id="priceAmount" step="0.01">
+            </label>
+
+            <label for="currencyCode">Currency
+            <input type="text" name="currencyCode" id="currencyCode" value="EUR">
+            </label>
+       
+            <label for="territory">Territory
+            <input type="text" name="territory" id="territory" value="Germany">
+            </label>
+        </div>
+
+        
+    -->
