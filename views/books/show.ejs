@@ -7,8 +7,10 @@
     <p>Publishing Date: <%= book.publishingDate %></p>
 </div>
 
-<a href="/books/<%= book._id %>/edit"><button>Edit</button></a>
-<form action="/books/<%= book._id %>?_method=DELETE" method="POST"><button type="submit">Delete</button></form>
-<a href="/books"><button>Overview</button></a>
+<div class="action-bar">
+    <a class="action" href="/books/<%= book._id %>/edit">Edit book</a>
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST"><button type="submit" class="action">Delete book</button></form>
+    <a class="action" href="/books">Return to overview</a>
+</div>
 
 <%- include('../partials/footer.ejs') %>

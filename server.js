@@ -56,7 +56,7 @@ app.get('/books/new', (req, res) => {
 app.post('/books', async (req, res) => {
     const submittedBook = req.body;
     const newBook = await Book.create(submittedBook);
-    console.log(log.info, `Stored new book ${newBook.titleText} as ${newBook._id}`);
+    console.log(log.warning, `Stored new book ${newBook.titleText} as ${newBook._id}`);
     res.redirect(`/books/${newBook._id}`);
 })
 
@@ -86,7 +86,7 @@ app.put('/books/:id', async (req, res) => {
     const bookId = req.params.id;
     const submittedBook = req.body;
     const editedBook = await Book.findByIdAndUpdate(bookId, submittedBook);
-    console.log(log.info, `Updated book ${editedBook.titleText} as ${editedBook._id}`);
+    console.log(log.warning, `Updated book ${editedBook.titleText} as ${editedBook._id}`);
     res.redirect(`/books/${bookId}`);
 })
 

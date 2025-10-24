@@ -1,11 +1,15 @@
 <%- include('../partials/header.ejs') %>
 
-<ul>
-    <% books.forEach(book => { %>
-        <li><a href="/books/<%= book._id %>"><%= book.titleText %></a></li>
-    <% }) %>
-</ul>
+<div id="allBooks">
+    <ul>
+        <% books.forEach(book => { %>
+            <li><a href="/books/<%= book._id %>"><%= book.titleText %></a></li>
+        <% }) %>
+    </ul>
+</div>
 
-<form action="/books/new"><button type="submit">Add</button></form>
+<div class="action-bar">
+    <a class="action" href="/books/new">Add book</a>
+</div>
 
 <%- include('../partials/footer.ejs') %>

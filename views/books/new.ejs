@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
 <div id="newBook">
-<form action="/books" method="post">
+<form id="newForm" action="/books" method="post">
 
     <label for="personName">Author</label>
     <input type="text" name="personName" id="personName" required>
@@ -19,6 +19,9 @@
 </form>
 </div>
 
-<a href="/books"><button>Overview</button></a>
+<div class="action-bar">
+    <button form="newForm" class="action" type="submit">Submit changes</button>
+    <a class="action" href="/books">Return without changes</a>
+</div>
 
 <%- include('../partials/footer.ejs') %>
