@@ -4,6 +4,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
+import methodOverride from 'method-override';
 import 'dotenv/config';
 
 // Import the data model.
@@ -25,8 +26,11 @@ app.set('view engine', 'ejs')
 
 // ! Middleware
 
-// Use Morgan for logging all requests to the server to the terminal.
-app.use(morgan('dev'));
+// Use Morgan for logging failing requests to the server to the terminal.
+app.use(morgan(
+  `${log.alert}:method :url :status`,
+  { skip: (req, res) => { return res.statusCode < 400 }}
+));
 
 // Use /public/ as folder to serve static assets like CSS files and images.
 app.use(express.static('public'));
@@ -34,11 +38,14 @@ app.use(express.static('public'));
 // Ensure that form data can be interpreted with correct encoding.
 app.use(express.urlencoded());
 
+// Allow forms to send verbs other than GET and POST as query parameters.
+app.use(methodOverride('_method'));
+
 // ! Routes
 
 // Homepage
 app.get('/', (req, res) => {
-    res.render('index');
+    res.redirect('/books');
 })
 
 // Create book
@@ -53,7 +60,7 @@ app.post('/books', async (req, res) => {
     res.redirect(`/books/${newBook._id}`);
 })
 
-// Show book
+// Read book
 app.get('/books', async (req, res) => {
     const retrievedBooks = await Book.find().lean();
     console.log(log.info, `Retrieved all books`);
@@ -62,9 +69,34 @@ app.get('/books', async (req, res) => {
 
 app.get('/books/:id', async (req, res) => {
     const bookId = req.params.id;
-    const retrievedBook = await Book.findById(bookId).lean();
+    const retrievedBook = await Book.findById(bookId);
     console.log(log.info, `Retrieved book ${retrievedBook.titleText} as ${retrievedBook._id}`);
     res.render('books/show', { book: retrievedBook });
+})
+
+// Edit book
+app.get('/books/:id/edit', async (req, res) => {
+    const bookId = req.params.id;
+    const retrievedBook = await Book.findById(bookId);
+    console.log(log.info, `Retrieved book ${retrievedBook.titleText} as ${retrievedBook._id}`);
+    res.render('books/edit', { book: retrievedBook });
+})
+
+app.put('/books/:id', async (req, res) => {
+    const bookId = req.params.id;
+    const submittedBook = req.body;
+    const editedBook = await Book.findByIdAndUpdate(bookId, submittedBook);
+    console.log(log.info, `Updated book ${editedBook.titleText} as ${editedBook._id}`);
+    res.redirect(`/books/${bookId}`);
+})
+
+// Delete book
+app.delete('/books/:id', async (req,res) => {
+    const bookId = req.params.id;
+    const deletedBook = await Book.findByIdAndDelete(bookId);
+    console.log(log.warning, `Deleted book ${deletedBook.titleText} as ${deletedBook._id}`);
+    res.redirect('/books');
+
 })
 
 // ! Connections

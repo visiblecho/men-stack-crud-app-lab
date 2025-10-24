@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+
+<div id="editBook">
+<form action="/books/<%= book._id %>?_method=PUT" method="post">
+
+    <label for="personName">Author</label>
+    <input type="text" name="personName" id="personName" required value="<%= book.personName %>">
+
+    <label for="titleText">Title</label>
+    <input type="text" name="titleText" id="titleText" required value="<%= book.titleText %>">
+
+    <label for="cityOfPublication">City of Publication</label>
+    <input type="text" name="cityOfPublication" id="cityOfPublication" value="<%= book.cityOfPublication %>">
+
+    <label for="publishingDate">Publishing Date</label>
+    <input type="number" name="publishingDate" id="publishingDate" value="<%= book.publishingDate %>">
+
+    <button type="submit">Submit</button>
+</form>
+</div>
+
+<a href="/books"><button>Overview</button></a>
+
+<%- include('../partials/footer.ejs') %>

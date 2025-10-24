@@ -7,12 +7,18 @@ body {
     display: flex;
     justify-content: center;
     padding: 1rem;
-           
 }
 
 .container {
     min-width: 300px;
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
@@ -20,7 +26,7 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, button:hover {
     transform: scale(1.05);
     transition: transform 0.2s ease;
     display: inline-block;
@@ -29,17 +35,18 @@ a:hover {
 /* ! Header */
 
 header img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  display: block;
 }
 
-nav {
+header nav {
   background-color: rgba(0, 0, 0, 0.1);
   padding: .5rem;
 }
 
 nav ul {
-  list-style: none;
+
   display: flex;
   justify-content: space-evenly;
   gap: 1rem;
@@ -50,8 +57,9 @@ nav ul {
 /* ! New book */
 
 #newBook {
-    display: grid;
-    grid-template-columns: 8rem 1fr;
-    gap: .5rem;
-    align-items: center;
+  width: 100%;  
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: .5rem;
+  align-items: center;
 }

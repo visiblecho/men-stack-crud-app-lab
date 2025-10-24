@@ -1,11 +1,11 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Show all books</h1>
-
 <ul>
     <% books.forEach(book => { %>
         <li><a href="/books/<%= book._id %>"><%= book.titleText %></a></li>
     <% }) %>
 </ul>
+
+<form action="/books/new"><button type="submit">Add</button></form>
 
 <%- include('../partials/footer.ejs') %>

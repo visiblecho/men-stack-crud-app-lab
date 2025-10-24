@@ -1,10 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Add a book</h1>
-<form action="/books" method="post">
 <div id="newBook">
-    <label for="idValue">ISBN</label>
-    <input type="text" name="idValue" id="idValue" required>
+<form action="/books" method="post">
 
     <label for="personName">Author</label>
     <input type="text" name="personName" id="personName" required>
@@ -12,42 +9,16 @@
     <label for="titleText">Title</label>
     <input type="text" name="titleText" id="titleText" required>
 
-    <label for="subtitle">Subtitle</label>
-    <input type="text" name="subtitle" id="subtitle">
-
-    <label for="partNumber">Part Number</label>
-    <input type="text" name="partNumber" id="partNumber">
-
-    <label for="publisherName">Publisher</label>
-    <input type="text" name="publisherName" id="publisherName" required>
-
     <label for="cityOfPublication">City of Publication</label>
     <input type="text" name="cityOfPublication" id="cityOfPublication">
 
     <label for="publishingDate">Publishing Date</label>
-    <input type="date" name="publishingDate" id="publishingDate">
-
-    <label for="editionNumber">Edition Number</label>
-    <input type="number" name="editionNumber" id="editionNumber" min="1">
-    </label>
-
-    <label for="language">Language</label>
-    <input type="text" name="language" id="language">
-
-    <label for="pages">Pages</label>
-    <input type="number" name="pages" id="pages" min="1">
-
-    <label for="priceAmount">Price</label>
-    <input type="number" name="priceAmount" id="priceAmount" step="1">
-
-    <label for="currencyCode">Currency</label>
-    <input type="text" name="currencyCode" id="currencyCode" value="EUR">
-
-    <label for="territory">Territory</label>
-    <input type="text" name="territory" id="territory" value="Germany">
+    <input type="number" name="publishingDate" id="publishingDate">
 
     <button type="submit">Submit</button>
-</div>
 </form>
+</div>
+
+<a href="/books"><button>Overview</button></a>
 
 <%- include('../partials/footer.ejs') %>
