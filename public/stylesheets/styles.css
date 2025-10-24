@@ -28,15 +28,30 @@ a:hover {
 
 /* ! Header */
 
+header img {
+  max-width: 100%;
+  height: auto;
+}
+
 nav {
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: .5rem;
 }
 
 nav ul {
   list-style: none;
   display: flex;
+  justify-content: space-evenly;
   gap: 1rem;
   padding: 0;
   margin: 0;
+}
+
+/* ! New book */
+
+#newBook {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: .5rem;
+    align-items: center;
 }
