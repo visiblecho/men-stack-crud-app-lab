@@ -1,8 +1,7 @@
-/* ! General */
-
 body {
     background-color: blanchedalmond;
     font-family: 'Garamond';
+    font-size: 110%;
     line-height: 1.5;
     display: flex;
     justify-content: center;
@@ -10,8 +9,8 @@ body {
 }
 
 .container {
-    min-width: 300px;
-    max-width: 600px;
+    min-width: 250px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,6 +18,7 @@ body {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 a {
@@ -32,16 +32,13 @@ a.action, button.action {
   background-color: rgba(0, 0, 0, 0.2);
   padding: .5em;
   border: none;
-  cursor: pointer;
   font: inherit;
 }
 
-a:hover {
+a:hover, button:hover {
   background-color: rgba(0, 0, 0, 0.2);
-  transition: background-color 0.1s ease;
+  transform: scale(1.05);
 }
-
-/* ! Header */
 
 header img {
   width: 100%;
@@ -49,35 +46,9 @@ header img {
   display: block;
 }
 
-header nav {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: .5rem;
-}
-
-nav ul {
-
-  display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-}
-
-/* ! Action Bar */
-
 .action-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   gap: .5rem
-}
-
-/* ! New book */
-
-#newBook {
-  width: 100%;  
-  display: grid;
-  grid-template-columns: 8rem 1fr;
-  gap: .5rem;
-  align-items: center;
 }

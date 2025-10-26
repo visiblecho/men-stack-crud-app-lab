@@ -2,26 +2,25 @@
 
 <div id="newBook">
 <form id="newForm" action="/books" method="post">
+    <ul>
+        <li><label for="personName">Author</label>
+        <input type="text" name="personName" id="personName" required></li>
 
-    <label for="personName">Author</label>
-    <input type="text" name="personName" id="personName" required>
+        <li><label for="titleText">Title</label>
+        <input type="text" name="titleText" id="titleText" required></li>
 
-    <label for="titleText">Title</label>
-    <input type="text" name="titleText" id="titleText" required>
+        <li><label for="cityOfPublication">City of Publication</label>
+        <input type="text" name="cityOfPublication" id="cityOfPublication"></li>
 
-    <label for="cityOfPublication">City of Publication</label>
-    <input type="text" name="cityOfPublication" id="cityOfPublication">
-
-    <label for="publishingDate">Publishing Date</label>
-    <input type="number" name="publishingDate" id="publishingDate">
-
-    <button type="submit">Submit</button>
+        <li><label for="publishingDate">Publishing Date</label>
+        <input type="number" name="publishingDate" id="publishingDate"></li>
+    </ul>
 </form>
 </div>
 
 <div class="action-bar">
-    <button form="newForm" class="action" type="submit">Submit changes</button>
-    <a class="action" href="/books">Return without changes</a>
+    <button form="newForm" class="action" type="submit">Submit</button>
+    <a class="action" href="/books">Return</a>
 </div>
 
 <%- include('../partials/footer.ejs') %>

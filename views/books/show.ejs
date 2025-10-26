@@ -1,16 +1,18 @@
 <%- include('../partials/header.ejs') %>
 
 <div id="showBook">
-    <p>Author: <%= book.personName %></p>
-    <p>Title: <%= book.titleText %></p>
-    <p>City of Publication: <%= book.cityOfPublication %></p>
-    <p>Publishing Date: <%= book.publishingDate %></p>
+    <ul>
+        <li><%= book.personName %></li>
+        <li>Title: <%= book.titleText %></li>
+        <li>City of Publication: <%= book.cityOfPublication %></li>
+        <li>Publishing Date: <%= book.publishingDate %></li>
+    </ul>
 </div>
 
 <div class="action-bar">
-    <a class="action" href="/books/<%= book._id %>/edit">Edit book</a>
-    <form action="/books/<%= book._id %>?_method=DELETE" method="POST"><button type="submit" class="action">Delete book</button></form>
-    <a class="action" href="/books">Return to overview</a>
+    <a class="action" href="/books/<%= book._id %>/edit">Edit</a>
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST"><button type="submit" class="action">Delete</button></form>
+    <a class="action" href="/books">Return</a>
 </div>
 
 <%- include('../partials/footer.ejs') %>

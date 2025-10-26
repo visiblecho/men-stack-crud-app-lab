@@ -2,26 +2,25 @@
 
 <div id="editBook">
     <form id="editForm" action="/books/<%= book._id %>?_method=PUT" method="post">
+        <ul>
+            <li><label for="personName">Author</label>
+            <input type="text" name="personName" id="personName" required value="<%= book.personName %>"></li>
 
-        <label for="personName">Author</label>
-        <input type="text" name="personName" id="personName" required value="<%= book.personName %>">
+            <li><label for="titleText">Title</label>
+            <input type="text" name="titleText" id="titleText" required value="<%= book.titleText %>"></li>
 
-        <label for="titleText">Title</label>
-        <input type="text" name="titleText" id="titleText" required value="<%= book.titleText %>">
+            <li><label for="cityOfPublication">City of Publication</label>
+            <input type="text" name="cityOfPublication" id="cityOfPublication" value="<%= book.cityOfPublication %>"></li>
 
-        <label for="cityOfPublication">City of Publication</label>
-        <input type="text" name="cityOfPublication" id="cityOfPublication" value="<%= book.cityOfPublication %>">
-
-        <label for="publishingDate">Publishing Date</label>
-        <input type="number" name="publishingDate" id="publishingDate" value="<%= book.publishingDate %>">
-
-        
+            <li><label for="publishingDate">Publishing Date</label>
+            <input type="number" name="publishingDate" id="publishingDate" value="<%= book.publishingDate %>"></li>
+        </ul>
     </form>
 </div>
 
 <div class="action-bar">
-    <button form="editForm" class="action" type="submit">Submit changes</button>
-    <a class="action" href="/books">Return without changes</a>
+    <button form="editForm" class="action" type="submit">Submit</button>
+    <a class="action" href="/books">Return</a>
 </div>
 
 <%- include('../partials/footer.ejs') %>
